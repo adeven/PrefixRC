@@ -1,0 +1,60 @@
+{
+   "abstract" : "A simple init replacement for Gentoo Prefix",
+   "author" : [
+      "Adeven GmbH <robert@adeven.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "mit"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "PrefixRC",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Getopt::Long" : "0",
+            "Moo" : "0",
+            "POSIX" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "PrefixRC" : {
+         "file" : "lib/PrefixRC.pm",
+         "version" : 0
+      },
+      "PrefixRC::Start" : {
+         "file" : "lib/PrefixRC/Start.pm",
+         "version" : 0
+      },
+      "PrefixRC::Status" : {
+         "file" : "lib/PrefixRC/Status.pm",
+         "version" : 0
+      },
+      "PrefixRC::Stop" : {
+         "file" : "lib/PrefixRC/Stop.pm",
+         "version" : 0
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://opensource.org/licenses/mit-license.php"
+      ]
+   },
+   "version" : "0.01"
+}
