@@ -81,16 +81,21 @@ sub _pretty_print {
 
 sub _read_pid {
     my $self = shift;
-    open my $rh, '<', $self->pid_dir . $self->program or die "$!";
-    my $pid = <$rh>;
-    close($rh);
-    return $pid;
+    if ( -f $self->pid_dir . $self->program ) {
+        open my $rh, '<', $self->pid_dir . $self->program or die "$!";
+        my $pid = <$rh>;
+        close($rh);
+        return $pid;
+    }
+    else {
+        $self->_pretty_print( 31, "no process found" );
+        exit 1;
+    }
 }
 
 sub _check_okay {
     my $self = shift;
     my $pid  = $self->_read_pid;
-    sleep(2);
     return kill 0, $pid;
 }
 
