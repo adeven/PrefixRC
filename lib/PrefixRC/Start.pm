@@ -22,6 +22,7 @@ sub BUILD {
 sub run {
     my $self = shift;
     $self->_double_fork;
+    sleep(2);
     PrefixRC::Status->new(
         pid_dir => $self->pid_dir,
         program => $self->program,

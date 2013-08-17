@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!$EPREFIX/usr/bin/perl
 
 use strict;
 use warnings;
@@ -8,10 +8,20 @@ use Getopt::Long;
 
 my $prefix;
 
+my $actions = {
+    start  => 1,
+    stop   => 1,
+    status => 1,
+};
+
 GetOptions( "prefix=s" => \$prefix, );
 
-my $prog   = shift @ARGV;
 my $action = shift @ARGV;
+my $prog   = shift @ARGV;
 
-my $rc = PrefixRC->new( prefix => $prefix );
-$rc->run( $prog, $action );
+if ( $$actions{$action} ) {
+    my $rc = PrefixRC->new( prefix => $prefix );
+    $rc->run( $action, $prog );
+} else {
+    die "unknown action: $action";
+}
