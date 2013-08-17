@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use PrefixRC;
+use Getopt::Long;
+
+my $prefix;
+
+GetOptions( "prefix=s" => \$prefix, );
+
+my $prog   = shift @ARGV;
+my $action = shift @ARGV;
+
+my $rc = PrefixRC->new( prefix => $prefix );
+$rc->run( $prog, $action );
